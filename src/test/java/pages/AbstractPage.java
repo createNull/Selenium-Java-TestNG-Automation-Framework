@@ -13,6 +13,8 @@ public class AbstractPage {
     public AbstractPage(AppiumDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 30, 100);
+        //        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 30), this);
+
     }
 
 
