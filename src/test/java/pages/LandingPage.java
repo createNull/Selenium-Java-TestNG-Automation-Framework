@@ -28,46 +28,54 @@ public class LandingPage extends AbstractPage {
         buyNowButton.click();
     }
 
-    public void fillInOrderDetails(String amount, String userName, String userEmail, String userPhone,
-                                   String userCityName, String userAddress, String userPostalCode){
+    public void fillInOrderDetails(String amount, String username, String email, String phoneNumber,
+                                   String city, String address, String postalCode){
         waitForElementToAppear(shoppingCart);
-        // user amount
-        inputField.clear();
-        inputField.sendKeys(amount);
-        inputField.sendKeys(Keys.TAB);
 
-        // name
-        inputField.clear();
-        inputField.sendKeys(userName);
-        inputField.sendKeys(Keys.TAB);
+        String[] userDetails = {amount, username, email, phoneNumber, city, address, postalCode};
 
-        // email
-        inputField.clear();
-        inputField.sendKeys(userEmail);
-        inputField.sendKeys(Keys.TAB);
-
-        // phone
-        inputField.clear();
-        inputField.sendKeys(userPhone);
-        inputField.sendKeys(Keys.TAB);
-
-        // city
-        inputField.clear();
-        inputField.sendKeys(userCityName);
-        inputField.sendKeys(Keys.TAB);
-
-        // address
-        inputField.clear();
-        inputField.sendKeys(userAddress);
-        inputField.sendKeys(Keys.TAB);
-
-        // postal code
-        inputField.clear();
-        inputField.sendKeys(userPostalCode);
+        for (String field : userDetails) {
+            inputField.clear();
+            inputField.sendKeys(field);
+            inputField.sendKeys(Keys.TAB);
+        }
+//        // user amount
+//        inputField.clear();
+//        inputField.sendKeys(amount);
+//        inputField.sendKeys(Keys.TAB);
+//
+//        // name
+//        inputField.clear();
+//        inputField.sendKeys(userName);
+//        inputField.sendKeys(Keys.TAB);
+//
+//        // email
+//        inputField.clear();
+//        inputField.sendKeys(userEmail);
+//        inputField.sendKeys(Keys.TAB);
+//
+//        // phone
+//        inputField.clear();
+//        inputField.sendKeys(userPhone);
+//        inputField.sendKeys(Keys.TAB);
+//
+//        // city
+//        inputField.clear();
+//        inputField.sendKeys(userCityName);
+//        inputField.sendKeys(Keys.TAB);
+//
+//        // address
+//        inputField.clear();
+//        inputField.sendKeys(userAddress);
+//        inputField.sendKeys(Keys.TAB);
+//
+//        // postal code
+//        inputField.clear();
+//        inputField.sendKeys(userPostalCode);
 
     }
 
-    public void submitOrder() {
+    public void submitOrderForm() {
         waitForElementToAppear(checkoutButton);
         checkoutButton.click();
     }

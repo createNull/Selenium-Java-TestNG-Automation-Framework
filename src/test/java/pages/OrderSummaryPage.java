@@ -93,7 +93,7 @@ public class OrderSummaryPage extends AbstractPage {
 
     }
 
-    public void submitOrderDetails() {
+    public void proceedToPayment() {
         waitForElementToAppear(submitOrderSummaryButton);
         submitOrderSummaryButton.click();
     }
