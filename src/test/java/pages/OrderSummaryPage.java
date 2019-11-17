@@ -52,7 +52,7 @@ public class OrderSummaryPage extends AbstractPage {
         waitForElementToAppear(orderDetailsTab);
         orderDetailsTab.click();
         waitForElementToAppear(itemAmount);
-        Assert.assertTrue(itemAmount.getText().contains(amount), amount +
+        Assert.assertEquals(itemAmount.getText(), amount, amount +
                 "was not shown on order details");
 
     }
@@ -61,7 +61,7 @@ public class OrderSummaryPage extends AbstractPage {
         waitForElementToAppear(shippingDetailsTab);
         shippingDetailsTab.click();
         waitForElementToAppear(shippingName);
-        Assert.assertTrue(shippingName.getText().contains(username), username +
+        Assert.assertEquals(shippingName.getText(), username, username +
                 "was not shown on shipping details");
 
     }
@@ -70,7 +70,7 @@ public class OrderSummaryPage extends AbstractPage {
         waitForElementToAppear(shippingDetailsTab);
         shippingDetailsTab.click();
         waitForElementToAppear(shippingPhoneNumber);
-        Assert.assertTrue(shippingPhoneNumber.getText().contains(phoneNumber), phoneNumber +
+        Assert.assertEquals(shippingPhoneNumber.getText(), phoneNumber, phoneNumber +
                 "was not shown on shipping details");
 
     }
@@ -79,7 +79,7 @@ public class OrderSummaryPage extends AbstractPage {
         waitForElementToAppear(shippingDetailsTab);
         shippingDetailsTab.click();
         waitForElementToAppear(shippingEmail);
-        Assert.assertTrue(shippingEmail.getText().contains(email), email +
+        Assert.assertEquals(shippingEmail.getText(), email, email +
                 "was not shown on shipping details");
 
     }
@@ -88,7 +88,7 @@ public class OrderSummaryPage extends AbstractPage {
         waitForElementToAppear(shippingDetailsTab);
         shippingDetailsTab.click();
         waitForElementToAppear(shippingAddress);
-        Assert.assertTrue(itemName.getText().contains(address), address +
+        Assert.assertEquals(itemName.getText(), address, address +
                 "was not shown on shipping details");
 
     }
