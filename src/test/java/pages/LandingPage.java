@@ -4,7 +4,6 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 public class LandingPage extends AbstractPage {
 
@@ -20,8 +19,6 @@ public class LandingPage extends AbstractPage {
     @FindBy(css = ".cart-checkout")
     private WebElement checkoutButton;
 
-    @FindBy(css = ".trans-status.trans-success > span:first-of-type")
-    private WebElement transactionSuccessMessage;
 
     public LandingPage(AppiumDriver driver) {
         super(driver);
@@ -76,16 +73,6 @@ public class LandingPage extends AbstractPage {
 //        // postal code
 //        inputField.clear();
 //        inputField.sendKeys(userPostalCode);
-
-    }
-
-    public void checkTransactionStatus(String status) {
-        if (status.equals("SUCCES")) {
-            waitForElementToAppear(transactionSuccessMessage);
-            Assert.assertEquals(transactionSuccessMessage.getText(), "Thank you for your purchase.",
-                    "Successful transaction message was not shown.");
-        }
-
 
     }
 
