@@ -11,9 +11,11 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
 public class BaseTest {
 
     public static AppiumDriver mobileDriver;
+
 
     @BeforeTest
     public void beforeTest() throws MalformedURLException {

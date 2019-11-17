@@ -18,7 +18,7 @@ public class TransactionStatusPage extends AbstractPage {
     }
 
     public void checkTransactionStatus(String status) {
-        if (status.equals("SUCCES")) {
+        if (status.equals("SUCCESS")) {
             waitForElementToAppear(transactionSuccessMessage);
             Assert.assertEquals(transactionSuccessMessage.getText(), "Transaction successful",
                     "Successful transaction message was not shown.");
