@@ -1,5 +1,6 @@
 package tests;
 
+import common.Constants;
 import org.testng.annotations.Test;
 import pages.*;
 
@@ -14,7 +15,7 @@ public class Test2_Failed_Payment_Scenario extends BaseTest {
     private String amount, username, email, phoneNumber, city, address, postalCode, itemName,
             cardNumberFail, expiryDate, cvv, password;
 
-    @Test
+    @Test(dataProvider = Constants.BASE_DIR + "Test2_Failed_Payment_Scenario.csv")
     public void paymentFlowShouldFail() throws Exception {
         LandingSteps.buyNow();
         LandingSteps.fillInOrderDetails(amount, username, email, phoneNumber, city, address, postalCode);

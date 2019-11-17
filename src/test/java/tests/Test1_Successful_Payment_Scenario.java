@@ -1,5 +1,6 @@
 package tests;
 
+import common.Constants;
 import org.testng.annotations.Test;
 import pages.*;
 
@@ -13,9 +14,9 @@ public class Test1_Successful_Payment_Scenario extends BaseTest {
     private TransactionStatusPage TransactionStatusSteps = new TransactionStatusPage(mobileDriver);
 
     private String amount, username, email, phoneNumber, city, address, postalCode, itemName,
-            cardNumberSuccess, cardNumberFail, expiryDate, cvv, password;
+            cardNumberSuccess, expiryDate, cvv, password;
 
-    @Test
+    @Test(dataProvider = Constants.BASE_DIR + "Test1_Successful_Payment_Scenario.csv")
     public void paymentFlowShouldBeSuccessful() throws Exception {
 
         LandingSteps.buyNow();
