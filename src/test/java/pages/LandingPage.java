@@ -1,9 +1,10 @@
 package pages;
 
-import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.Keys;
+import common.Constants;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class LandingPage extends AbstractPage {
 
@@ -14,14 +15,37 @@ public class LandingPage extends AbstractPage {
     private WebElement shoppingCart;
 
     @FindBy(css = "input.text-right")
-    private WebElement inputField;
+    private WebElement itemValueInput;
+
+    @FindBy(css = ".input > input[type='text']")
+    private WebElement userNameInput;
+
+    @FindBy(css = ".input > input[type='email']")
+    private WebElement emailInput;
+
+    @FindBy(xpath = "//tr[3]//td[2]//input[1]")
+    private WebElement phoneNumberInput;
+
+    @FindBy(xpath = "//tr[4]//td[2]//input[1]")
+    private WebElement cityInput;
+
+    @FindBy(css = ".input > textarea")
+    private WebElement addressInput;
+
+    @FindBy(xpath = "//tr[6]//td[2]//input[1]")
+    private WebElement postalCodeInput;
 
     @FindBy(css = ".cart-checkout")
     private WebElement checkoutButton;
 
 
-    public LandingPage(AppiumDriver driver) {
+    public LandingPage(WebDriver driver) {
         super(driver);
+    }
+
+    public void launchBrowser() {
+        driver.get(Constants.URL);
+        Assert.assertEquals(driver.getCurrentUrl(), Constants.URL, "URL Mismatch");
     }
 
     public void buyNow() {
@@ -29,50 +53,33 @@ public class LandingPage extends AbstractPage {
         buyNowButton.click();
     }
 
-    public void fillInOrderDetails(String amount, String username, String email, String phoneNumber,
-                                   String city, String address, String postalCode){
+    public void fillInItemValue(String amount) {
+        waitForElementToAppear(itemValueInput);
+        itemValueInput.clear();
+        itemValueInput.sendKeys(amount);
+    }
+
+    public void fillInUserDetails(String username, String email, String phoneNumber,
+                                  String city, String address, String postalCode) {
         waitForElementToAppear(shoppingCart);
 
-        String[] userDetails = {amount, username, email, phoneNumber, city, address, postalCode};
+        userNameInput.clear();
+        userNameInput.sendKeys(username);
 
-        for (String field : userDetails) {
-            inputField.clear();
-            inputField.sendKeys(field);
-            inputField.sendKeys(Keys.TAB);
-        }
-//        // user amount
-//        inputField.clear();
-//        inputField.sendKeys(amount);
-//        inputField.sendKeys(Keys.TAB);
-//
-//        // name
-//        inputField.clear();
-//        inputField.sendKeys(userName);
-//        inputField.sendKeys(Keys.TAB);
-//
-//        // email
-//        inputField.clear();
-//        inputField.sendKeys(userEmail);
-//        inputField.sendKeys(Keys.TAB);
-//
-//        // phone
-//        inputField.clear();
-//        inputField.sendKeys(userPhone);
-//        inputField.sendKeys(Keys.TAB);
-//
-//        // city
-//        inputField.clear();
-//        inputField.sendKeys(userCityName);
-//        inputField.sendKeys(Keys.TAB);
-//
-//        // address
-//        inputField.clear();
-//        inputField.sendKeys(userAddress);
-//        inputField.sendKeys(Keys.TAB);
-//
-//        // postal code
-//        inputField.clear();
-//        inputField.sendKeys(userPostalCode);
+        emailInput.clear();
+        emailInput.sendKeys(email);
+
+        phoneNumberInput.clear();
+        phoneNumberInput.sendKeys(phoneNumber);
+
+        cityInput.clear();
+        cityInput.sendKeys(city);
+
+        addressInput.clear();
+        addressInput.sendKeys(address);
+
+        postalCodeInput.clear();
+        postalCodeInput.sendKeys(postalCode);
 
     }
 
