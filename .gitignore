@@ -2,5 +2,6 @@
 *.idea
 *.vscode
 
+/.idea
 /target
 
