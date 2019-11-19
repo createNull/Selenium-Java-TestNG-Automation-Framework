@@ -15,19 +15,23 @@ public class BaseTest {
 
     @BeforeTest
     public void beforeTest() {
-        System.setProperty("webdriver.firefox.driver", "." + File.separator + "drivers" + File.separator + "geckodriver");
 
         String browser = System.getProperty("browser");
-        if (browser.equals("chrome")){
-            System.setProperty("webdriver.chrome.driver", "." + File.separator + "drivers" + File.separator + "chromedriver");
-            driver = new ChromeDriver();
-        }
-        else if (browser.equals("firefox")) {
-            System.setProperty("webdriver.firefox.driver", "." + File.separator + "drivers" + File.separator + "geckodriver");
-            driver = new FirefoxDriver();
+
+        if (browser != null) {
+            if (browser.equals("chrome")) {
+                System.setProperty("webdriver.chrome.driver", "." + File.separator + "drivers" + File.separator + "chromedriver");
+                driver = new ChromeDriver();
+            } else if (browser.equals("firefox")) {
+                System.setProperty("webdriver.firefox.driver", "." + File.separator + "drivers" + File.separator + "geckodriver");
+                driver = new FirefoxDriver();
+            } else {
+                throw new RuntimeException("Does not support browser + " + browser);
+            }
         }
         else {
-            throw new RuntimeException("Does not support browser + " + browser);
+            System.setProperty("webdriver.chrome.driver", "." + File.separator + "drivers" + File.separator + "chromedriver");
+            driver = new ChromeDriver();
         }
     }
 
