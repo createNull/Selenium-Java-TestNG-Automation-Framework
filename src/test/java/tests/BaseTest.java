@@ -1,41 +1,30 @@
 package tests;
 
-import common.Constants;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 
 public class BaseTest {
 
-    public AppiumDriver mobileDriver;
+    public WebDriver driver;
 
     @BeforeTest
-    public void beforeTest() throws MalformedURLException {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "MacOSX");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
-        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
-        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
-        capabilities.setCapability("newCommandTimeout", 2000);
-        mobileDriver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-    }
-
-    @BeforeTest
-    public void launchBrowser() {
-        mobileDriver.get(Constants.URL);
-        Assert.assertEquals(mobileDriver.getCurrentUrl(), Constants.URL, "URL Mismatch");
+    public void beforeTest() {
+        System.setProperty("webdriver.chrome.driver", "." + File.separator + "drivers" + File.separator + "chromedriver");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @AfterTest
     public void afterTest() {
-        mobileDriver.quit();
+        driver.quit();
     }
+
+
 }
