@@ -1,6 +1,6 @@
 package pages;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -9,7 +9,7 @@ public class SelectPaymentPage extends AbstractPage {
     @FindBy(css = ".list-title:first-of-type")
     private WebElement creditCard;
 
-    public SelectPaymentPage(AppiumDriver driver) {
+    public SelectPaymentPage(WebDriver driver) {
         super(driver);
     }
 

@@ -1,6 +1,6 @@
 package pages;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,7 +12,7 @@ public class BankTransactionPage extends AbstractPage{
     @FindBy(css = "#PaRes")
     private WebElement submitButton;
 
-    public BankTransactionPage(AppiumDriver driver) {
+    public BankTransactionPage(WebDriver driver) {
         super(driver);
     }
 

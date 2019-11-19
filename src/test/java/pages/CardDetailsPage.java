@@ -1,7 +1,7 @@
 package pages;
 
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -17,7 +17,7 @@ public class CardDetailsPage extends AbstractPage {
     @FindBy(css = ".text-button-main")
     private WebElement payNowButton;
 
-    public CardDetailsPage(AppiumDriver driver) {
+    public CardDetailsPage(WebDriver driver) {
         super(driver);
     }
 

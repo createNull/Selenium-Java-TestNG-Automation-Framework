@@ -1,6 +1,6 @@
 package pages;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -34,7 +34,7 @@ public class OrderSummaryPage extends AbstractPage {
     @FindBy(css = ".text-button-main")
     private WebElement submitOrderSummaryButton;
 
-    public OrderSummaryPage(AppiumDriver driver) {
+    public OrderSummaryPage(WebDriver driver) {
         super(driver);
     }
 

@@ -1,6 +1,6 @@
 package pages;
 
-import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -13,7 +13,7 @@ public class TransactionStatusPage extends AbstractPage {
     @FindBy(css = ".text-failed > span")
     private WebElement transactionFailMessage;
 
-    public TransactionStatusPage(AppiumDriver driver) {
+    public TransactionStatusPage(WebDriver driver) {
         super(driver);
     }
 
