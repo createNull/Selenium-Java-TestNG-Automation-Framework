@@ -10,25 +10,25 @@ public class OrderSummaryPage extends AbstractPage {
     @FindBy(css = ".item-name")
     private WebElement itemName;
 
-    @FindBy(css = ".text-actionable:first-of-type")
+    @FindBy(css = "li:first-of-type > .text-actionable > span")
     private WebElement orderDetailsTab;
 
     @FindBy(css = ".table-amount.text-body")
     private WebElement itemAmount;
 
-    @FindBy(css = ".text-actionable:last-of-type")
+    @FindBy(css = "li:last-of-type > .text-actionable > span")
     private WebElement shippingDetailsTab;
 
-    @FindBy(css = ".text-block > .text-body:first-of-type")
-    private WebElement shippingName;
+    @FindBy(xpath = "//div[contains(text(),'Name')]/../div[2]")
+    private WebElement shippingUsername;
 
-    @FindBy(css = ".text-block > .text-body:nth-of-type(2)")
+    @FindBy(xpath = "//div[contains(text(),'Phone number')]/../div[2]")
     private WebElement shippingPhoneNumber;
 
-    @FindBy(css = ".text-block > .text-body:nth-of-type(3)")
+    @FindBy(xpath = "//div[contains(text(),'Email')]/../div[2]")
     private WebElement shippingEmail;
 
-    @FindBy(css = ".text-block > .text-body:last-of-type")
+    @FindBy(xpath = "//div[contains(text(),'Address')]/../div[2]")
     private WebElement shippingAddress;
 
     @FindBy(css = ".text-button-main")
@@ -52,16 +52,16 @@ public class OrderSummaryPage extends AbstractPage {
         waitForElementToAppear(orderDetailsTab);
         orderDetailsTab.click();
         waitForElementToAppear(itemAmount);
-        Assert.assertEquals(itemAmount.getText(), amount, amount +
+        Assert.assertEquals(itemAmount.getText().replace(",", ""), amount, amount +
                 "was not shown on order details");
 
     }
 
-    public void checkShippingName(String username) {
+    public void checkShippingUsername(String username) {
         waitForElementToAppear(shippingDetailsTab);
         shippingDetailsTab.click();
-        waitForElementToAppear(shippingName);
-        Assert.assertEquals(shippingName.getText(), username, username +
+        waitForElementToAppear(shippingUsername);
+        Assert.assertEquals(shippingUsername.getText(), username, username +
                 "was not shown on shipping details");
 
     }

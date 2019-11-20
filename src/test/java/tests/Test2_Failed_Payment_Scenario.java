@@ -21,7 +21,7 @@ public class Test2_Failed_Payment_Scenario extends BaseTest {
         OrderSummaryPage orderSummarySteps = new OrderSummaryPage(driver);
         orderSummarySteps.checkItemName(itemName);
         orderSummarySteps.checkItemAmount(amount);
-        orderSummarySteps.checkShippingName(username);
+        orderSummarySteps.checkShippingUsername(username);
         orderSummarySteps.checkShippingPhoneNumber(phoneNumber);
         orderSummarySteps.checkShippingEmail(email);
         orderSummarySteps.checkShippingAddress(address);
