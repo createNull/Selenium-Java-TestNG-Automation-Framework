@@ -25,15 +25,15 @@ public class Test1_Successful_Payment_Scenario extends BaseTest {
         orderSummarySteps.checkShippingPhoneNumber(phoneNumber);
         orderSummarySteps.checkShippingEmail(email);
         orderSummarySteps.checkShippingAddress(address);
-        orderSummarySteps.proceedToPayment();
+        orderSummarySteps.confirmOrder();
 
         SelectPaymentPage selectPaymentSteps = new SelectPaymentPage(driver);
         selectPaymentSteps.selectCreditCardPayment();
 
         CardDetailsPage cardDetailsSteps = new CardDetailsPage(driver);
         cardDetailsSteps.checkFinalAmount(amount);
-        cardDetailsSteps.inputCardNumber(cardNumberSuccess, expiryDate, cvv);
-        cardDetailsSteps.payNow();
+        cardDetailsSteps.fillInCardDetails(cardNumberSuccess, expiryDate, cvv);
+        cardDetailsSteps.confirmPayment();
 
         BankTransactionPage bankTransactionSteps = new BankTransactionPage(driver);
         bankTransactionSteps.typePassword(password);

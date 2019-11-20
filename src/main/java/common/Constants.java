@@ -7,15 +7,15 @@ public class Constants {
 
     public static final String amount = "12000";
 
-    public static final String username = "TestName";
+    public static final String username = "John";
 
-    public static final String email = "test@example.com";
+    public static final String email = "john.doe@example.com";
 
-    public static final String phoneNumber = "+46111122223333";
+    public static final String phoneNumber = "+4611112222333";
 
     public static final String city = "Stockholm";
 
-    public static final String address = "Gesundaplan 38, Bromma";
+    public static final String address = "MidSquare 3, 1st Floor Jl.Amir.Abdul Kav.10-11 Stockholm 16743";
 
     public static final String postalCode = "16743";
 

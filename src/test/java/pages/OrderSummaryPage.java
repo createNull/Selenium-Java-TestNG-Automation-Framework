@@ -19,20 +19,20 @@ public class OrderSummaryPage extends AbstractPage {
     @FindBy(css = "li:last-of-type > .text-actionable > span")
     private WebElement shippingDetailsTab;
 
-    @FindBy(xpath = "//div[contains(text(),'Name')]/../div[2]")
+    @FindBy(xpath = "//div[(text()='Name')]/../div[2]")
     private WebElement shippingUsername;
 
-    @FindBy(xpath = "//div[contains(text(),'Phone number')]/../div[2]")
+    @FindBy(xpath = "//div[(text()='Phone number')]/../div[2]")
     private WebElement shippingPhoneNumber;
 
-    @FindBy(xpath = "//div[contains(text(),'Email')]/../div[2]")
+    @FindBy(xpath = "//div[(text()='Email')]/../div[2]")
     private WebElement shippingEmail;
 
-    @FindBy(xpath = "//div[contains(text(),'Address')]/../div[2]")
+    @FindBy(xpath = "//div[(text()='Address')]/../div[2]")
     private WebElement shippingAddress;
 
     @FindBy(css = ".text-button-main")
-    private WebElement submitOrderSummaryButton;
+    private WebElement confirmOrderButton;
 
     public OrderSummaryPage(WebDriver driver) {
         super(driver);
@@ -93,9 +93,9 @@ public class OrderSummaryPage extends AbstractPage {
 
     }
 
-    public void proceedToPayment() {
-        waitForElementToAppear(submitOrderSummaryButton);
-        submitOrderSummaryButton.click();
+    public void confirmOrder() {
+        waitForElementToAppear(confirmOrderButton);
+        confirmOrderButton.click();
     }
 }
 

@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,10 +11,16 @@ public class CardDetailsPage extends AbstractPage {
     private WebElement finalAmount;
 
     @FindBy(css = "input[name='cardnumber']")
-    private WebElement cardDetailsInput;
+    private WebElement cardNumberInput;
+
+    @FindBy(xpath = "//div[@class='card-container'][1]/div[2]/input")
+    private WebElement cardExpiryDateInput;
+
+    @FindBy(xpath = "//div[@class='card-container'][1]/div[3]/input")
+    private WebElement cardCVVInput;
 
     @FindBy(css = ".text-button-main")
-    private WebElement payNowButton;
+    private WebElement confirmPaymentButton;
 
     public CardDetailsPage(WebDriver driver) {
         super(driver);
@@ -23,24 +28,24 @@ public class CardDetailsPage extends AbstractPage {
 
     public void checkFinalAmount(String amount) {
         waitForElementToAppear(finalAmount);
-        Assert.assertEquals(finalAmount.getText(), amount, amount +
+        Assert.assertEquals(finalAmount.getText().replace(",", ""), amount, amount +
                 "was not shown on order details");
     }
 
-    public void inputCardNumber(String cardNumber, String expiryDate, String cvv) {
-        waitForElementToAppear(cardDetailsInput);
+    public void fillInCardDetails(String cardNumber, String expiryDate, String cvv) {
+        waitForElementToAppear(cardNumberInput);
+        cardNumberInput.clear();
+        cardNumberInput.sendKeys(cardNumber);
 
-        String[] cardDetails = {cardNumber, expiryDate, cvv};
+        cardExpiryDateInput.clear();
+        cardExpiryDateInput.sendKeys(expiryDate);
 
-        for (String cardInputField : cardDetails) {
-            cardDetailsInput.clear();
-            cardDetailsInput.sendKeys(cardInputField);
-            cardDetailsInput.sendKeys(Keys.TAB);
-        }
+        cardCVVInput.clear();
+        cardCVVInput.sendKeys(cvv);
     }
 
-    public void payNow() {
-        waitForElementToAppear(payNowButton);
-        payNowButton.click();
+    public void confirmPayment() {
+        waitForElementToAppear(confirmPaymentButton);
+        confirmPaymentButton.click();
     }
 }

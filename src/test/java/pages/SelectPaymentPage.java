@@ -6,15 +6,15 @@ import org.openqa.selenium.support.FindBy;
 
 public class SelectPaymentPage extends AbstractPage {
 
-    @FindBy(css = ".list-title:first-of-type")
-    private WebElement creditCard;
+    @FindBy(xpath = "//div[(text()='Credit Card')]")
+    private WebElement creditCardOption;
 
     public SelectPaymentPage(WebDriver driver) {
         super(driver);
     }
 
     public void selectCreditCardPayment(){
-        waitForElementToAppear(creditCard);
-        creditCard.click();
+        waitForElementToAppear(creditCardOption);
+        creditCardOption.click();
     }
 }

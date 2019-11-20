@@ -17,22 +17,22 @@ public class LandingPage extends AbstractPage {
     @FindBy(css = "input.text-right")
     private WebElement itemValueInput;
 
-    @FindBy(xpath = "//td[contains(text(),'Name')]/../td/input")
+    @FindBy(xpath = "//td[(text()='Name')]/../td/input")
     private WebElement userNameInput;
 
-    @FindBy(xpath = "//td[contains(text(),'Email')]/../td/input")
+    @FindBy(xpath = "//td[(text()='Email')]/../td/input")
     private WebElement emailInput;
 
-    @FindBy(xpath = "//td[contains(text(),'Phone no')]/../td/input")
+    @FindBy(xpath = "//td[(text()='Phone no')]/../td/input")
     private WebElement phoneNumberInput;
 
-    @FindBy(xpath = "//td[contains(text(),'City')]/../td/input")
+    @FindBy(xpath = "//td[(text()='City')]/../td/input")
     private WebElement cityInput;
 
     @FindBy(css = ".input > textarea")
     private WebElement addressInput;
 
-    @FindBy(xpath = "//td[contains(text(),'Postal Code')]/../td/input")
+    @FindBy(xpath = "//td[(text()='Postal Code')]/../td/input")
     private WebElement postalCodeInput;
 
     @FindBy(css = ".cart-checkout")

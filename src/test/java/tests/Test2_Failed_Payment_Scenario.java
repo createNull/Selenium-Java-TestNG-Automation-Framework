@@ -25,15 +25,15 @@ public class Test2_Failed_Payment_Scenario extends BaseTest {
         orderSummarySteps.checkShippingPhoneNumber(phoneNumber);
         orderSummarySteps.checkShippingEmail(email);
         orderSummarySteps.checkShippingAddress(address);
-        orderSummarySteps.proceedToPayment();
+        orderSummarySteps.confirmOrder();
 
         SelectPaymentPage selectPaymentSteps = new SelectPaymentPage(driver);
         selectPaymentSteps.selectCreditCardPayment();
 
         CardDetailsPage cardDetailsSteps = new CardDetailsPage(driver);
         cardDetailsSteps.checkFinalAmount(amount);
-        cardDetailsSteps.inputCardNumber(cardNumberFail, expiryDate, cvv);
-        cardDetailsSteps.payNow();
+        cardDetailsSteps.fillInCardDetails(cardNumberFail, expiryDate, cvv);
+        cardDetailsSteps.confirmPayment();
 
         BankTransactionPage bankTransactionSteps = new BankTransactionPage(driver);
         bankTransactionSteps.typePassword(password);
