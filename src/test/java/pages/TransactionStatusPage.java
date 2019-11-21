@@ -7,10 +7,10 @@ import org.testng.Assert;
 
 public class TransactionStatusPage extends AbstractPage {
 
-    @FindBy(css = ".text-success:last-of-type")
+    @FindBy(xpath = "//div[(text()='Transaction successful')]")
     private WebElement transactionSuccessMessage;
 
-    @FindBy(css = ".text-failed > span")
+    @FindBy(xpath = "//span[text()='Transaction failed']")
     private WebElement transactionFailMessage;
 
     public TransactionStatusPage(WebDriver driver) {

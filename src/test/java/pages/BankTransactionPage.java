@@ -9,7 +9,7 @@ public class BankTransactionPage extends AbstractPage{
     @FindBy(css = "#PaRes")
     private WebElement passwordInput;
 
-    @FindBy(css = "#PaRes")
+    @FindBy(css = "button[name='ok']")
     private WebElement submitButton;
 
     public BankTransactionPage(WebDriver driver) {
