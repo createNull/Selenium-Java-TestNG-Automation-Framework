@@ -1,4 +1,4 @@
-# AutomationUI
+# Selenium-Java-TestNG-Automation-Framework
 
 This Test Automation Framework is created using Java + Selenium Web Driver + TestNG which can be used across different web based applications.
 
