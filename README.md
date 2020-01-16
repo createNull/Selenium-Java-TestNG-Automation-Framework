@@ -1,7 +1,7 @@
 # Selenium-Java-TestNG-Automation-Framework
 
 Built from scratch Web Test Automation Framework with Java, Selenium Web Driver and TestNG.
-Supports cross-browser testing.
+Supports cross-browser testing and provides a test report with results.
 
 Prerequisites:
 ---------------
